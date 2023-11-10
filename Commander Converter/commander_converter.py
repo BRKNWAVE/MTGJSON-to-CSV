@@ -25,4 +25,4 @@ with open('decklist_output.csv', 'w', newline='') as csv_file:
             number = row.get('number')
             productLine = 'Magic'
             marketplacePrice = '1'
-            writer.writerow([tcgplayerProductId, productLine, '', productName, '', '', '', '', '', '', '', '', count, marketplacePrice, ''])
+            writer.writerow([tcgplayerProductId, '', '', '', '', '', '', '', '', '', '', '', count, marketplacePrice, ''])
