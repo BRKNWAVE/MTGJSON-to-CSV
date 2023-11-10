@@ -24,4 +24,5 @@ with open('decklist_output.csv', 'w', newline='') as csv_file:
             condition = 'Near Mint'
             number = row.get('number')
             productLine = 'Magic'
-            writer.writerow([tcgplayerProductId, productLine, '', productName, number, rarity, condition, '', '', '', '', '', count, '', ''])
+            marketplacePrice = '1'
+            writer.writerow([tcgplayerProductId, productLine, '', productName, '', '', '', '', '', '', '', '', count, marketplacePrice, ''])
