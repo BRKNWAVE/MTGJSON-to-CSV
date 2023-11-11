@@ -17,7 +17,7 @@ with open('decklist_output.csv', 'w', newline='') as csv_file:
     # Write each data row to the CSV file
     for section in ['commander', 'mainBoard']:
         for row in data['data'][section]:
-            tcgplayerProductId = row['identifiers'].get('tcgplayerProductId')
+            tcgplayerSku = row['identifiers'].get('uuid')
             productName = row.get('name')
             count = row.get('count')
             rarity = row.get('rarity', '')[0].upper() if row.get('rarity') else ''
@@ -25,4 +25,4 @@ with open('decklist_output.csv', 'w', newline='') as csv_file:
             number = row.get('number')
             productLine = 'Magic'
             marketplacePrice = '1'
-            writer.writerow([tcgplayerProductId, '', '', '', '', '', '', '', '', '', '', '', count, marketplacePrice, ''])
+            writer.writerow([tcgplayerSku, '', '', '', '', '', '', '', '', '', '', '', count, marketplacePrice, ''])
