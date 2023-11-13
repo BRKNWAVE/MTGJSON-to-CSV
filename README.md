@@ -1,35 +1,76 @@
-## Running this Python Script without Python Installed
+# MTGJSON-to-CSV Converter
 
-This guide will walk you through the process of running this Python script on a machine that doesn't have Python installed.
+## Overview
 
-### Step 1: Install Python
+This Python script is designed for converting Magic: The Gathering (MTG) decklists in JSON format to CSV format. It also provides functionality to update TCGPlayer SKU data used in the conversion process.
 
-1. Download the latest version of Python from the [official website](https://www.python.org/downloads/).
-2. Run the installer. During the installation, make sure to check the box that says "Add Python to PATH" before you click "Install Now".
+## Features
 
-### Step 2: Verify Python Installation
+- **Dependency Installation:** The script checks and installs required dependencies, including the 'requests' library.
 
-1. Open a new command prompt or terminal window.
-2. Type `python --version` and press Enter. You should see the Python version number that you just installed.
+- **Automatic Updates:** The script checks for updates on GitHub. If a new version is available, users can choose to update the script.
 
-### Step 3: Setup Files for the Script
+- **TCGPlayer SKU Data Updates:** The script checks for updates to the TCGPlayer SKU data. If a new version is available, users can choose to update the data.
 
-1. Download the `commander_converter.py` script and the a decklist JSON file from [MTGJSON](https://mtgjson.com/downloads/all-decks/) and put them in the same directory.
-2. Rename the downloaded decklist file to `decklist.json`
-3. Open a command prompt or terminal window and navigate to the directory where you saved the script and the JSON file.
-    - alternatively, right click the `commander_converter.py` script and `Run in Terminal...`
-4. Type `python commander_converter.py` and press Enter. The script should run and create a new CSV file in the same directory.
+- **Conversion of Decklists:** Users can convert MTG decklists from JSON to CSV format. The script validates card IDs against TCGPlayer SKUs and identifies any mismatches.
 
-### Step 4: Open Your Converted CSV
+## Getting Started
 
-1. Open the converted CSV in your preferred editor.
-2. Make any necessary changes to quantity or included cards if required.
-3. Upload to TCGPlayer.
+1. Ensure Python is installed on your system. If it is not you can download it from [here](https://www.python.org/downloads/).
+2. Run the script by executing `python3 commander_converter.py` in your terminal or command prompt.
 
-******************
-If you encounter any errors:
-    - Reverify the integrity of your Python installation  
-    - Ensure the file name for the JSON file you wish to convert is `decklist.json`  
-    - Ensure the `commander_converter.py` script and the `decklist.json` file are in the same directory  
-    - Ensure the JSON file is sourced from MTGJSON's Decklists found [here](https://mtgjson.com/downloads/all-decks/)  
-    - Ensure the JSON file is of the type "Commander Deck" on MTGJSON  
+## Usage
+
+1. The script prompts to update the main script if a new version is available.
+2. It checks for updates to the TCGPlayer SKU data and prompts to update if a new version is available.
+3. After updates, the main menu displays with options:
+    - **Convert a decklist:** Convert an MTG decklist from JSON to CSV.
+    - **Update TCGPlayer SKUs data:** Manually update the TCGPlayer SKU data.
+    - **Exit:** Terminate the program.
+
+## Example Decklist Conversion
+
+1. Choose option 1 from the main menu.
+2. Select the desired decklist from the available options.
+3. Enter a name for the output CSV file when prompted.
+4. The script converts the decklist, validating card IDs against TCGPlayer SKUs, and generates a CSV file in the 'csv-outputs' folder.
+
+## Obtaining Decklists
+
+To use the MTGJSON-to-CSV Converter, you need Magic: The Gathering decklists in JSON format. Follow these steps to obtain and use the decklists:
+
+1. Visit [MTGJSON Downloads](https://mtgjson.com/downloads/all-decks/) to download the desired decklists in the uncompressed JSON format.
+
+2. After downloading the decklists, place the JSON files in the 'decklists' folder of the MTGJSON-to-CSV Converter.
+
+    ```
+    /MTGJSON-to-CSV
+    ├── commander_converter.py
+    ├── csv-outputs
+    ├── decklists
+    │   ├── decklist1.json
+    │   ├── decklist2.json
+    │   └── ...
+    ├── README.md
+    └── ...
+    ```
+
+3. Run the script (`python3 commander_converter.py`) and use the provided options to convert the decklists to CSV or update TCGPlayer SKU data.
+
+**Note:** Make sure to use decklists in the correct JSON format as provided by MTGJSON. The script expects valid Magic: The Gathering decklist JSON files for accurate conversion.
+
+## Notes
+
+- The script uses multi-threading for faster TCGPlayer SKU data updates.
+- It checks for duplicate TCGPlayer IDs during decklist conversion to avoid redundancy.
+- Restart the program after updating the main script.
+
+## Disclaimer
+
+This script is provided as-is, and the user assumes all responsibility for its use. It is not affiliated with MTGJSON or TCGPlayer.
+
+**Author:** Ailric Bean
+
+**Version:** 0.2
+
+For more information if you've found this elsewhere, or to report issues, visit the [GitHub repository](https://github.com/BRKNWAVE/MTGJSON-to-CSV).
